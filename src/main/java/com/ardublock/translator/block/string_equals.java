@@ -32,5 +32,4 @@ public class string_equals extends TranslatorBlock
 		String ret= internalVariableName + ".equals("+second+")";
 		return codePrefix + ret + codeSuffix;
 	}
-
 }
