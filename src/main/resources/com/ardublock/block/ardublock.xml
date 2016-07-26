@@ -29,10 +29,25 @@
 		<BlockGenus name="repeat_control" kind="command" color="255 221 0" initlabel="bg.repeat_control">
 			<description>
 				<text>repeat</text>
+				<arg-description  name="variable">
+					Переменная - счетчик
+				</arg-description>
+				<arg-description  name="start">
+					Начальное значение переменной
+				</arg-description>
+				<arg-description  name="end">
+					Верхний предел переменной
+				</arg-description>
+				<arg-description  name="increment">
+					Шаг, с которым будет изменяться переменная после каждого прохода
+				</arg-description>
+				<arg-description  name="commands">
+					Набор команд
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
-					<DefaultArg genus-name="variable_number" label="Variable name" />
+					<DefaultArg genus-name="variable_number" label="Имя переменной" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.start">
 					<DefaultArg genus-name="number" label="1" />
@@ -50,6 +65,12 @@
 		<BlockGenus name="program" kind="command" color="255 240 0" initlabel="bg.program" is-starter="yes" is-terminator="yes" label-unique="no">
 			<description>
 				<text>this is the loop of the arduino</text>
+				<arg-description  name="setup">
+					Набор команд, которые выполнятся один раз на старте программы
+				</arg-description>
+				<arg-description  name="loop">
+					Команды здесь будут выполняться в бесконечном цикле
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.setup" />
@@ -59,6 +80,9 @@
 		<BlockGenus name="loop" kind="command" color="255 240 0" initlabel="bg.loop" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>this is the loop of the arduino</text>
+				<arg-description  name="do">
+					Команды здесь будут выполняться в бесконечном цикле
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.do" />
@@ -88,14 +112,12 @@
 					is true, the agent will run the blocks attached to
 					<arg n="2" />
 				</text>
-				<arg-description n="1" name="test">
-					The condition being
-					tested.
+				<arg-description  name="test">
+					Условие, подлежащее проверке
 				</arg-description>
 
 				<arg-description n="2" name="then">
-					The set of instructions
-					that is done when the condition is true.
+					Набор команд, которые выполнятся, если условие истинно
 				</arg-description>
 			</description>
 			<BlockConnectors>
@@ -111,18 +133,15 @@
 					true, otherwise it will do the second set of commands.
 				</text>
 				<arg-description n="1" name="test">
-					The condition being
-					tested.
+					Условие, подлежащее проверке
 				</arg-description>
 
 				<arg-description n="2" name="then">
-					The set of instructions
-					that is done when the condition is true.
+					Набор команд, которые выполнятся, если условие истинно
 				</arg-description>
 
 				<arg-description n="3" name="else">
-					The set of instructions
-					that is done when the condition is false.
+					Набор команд, которые выполнятся, если условие ложно
 				</arg-description>
 			</description>
 			<BlockConnectors>
@@ -137,6 +156,12 @@
 				<text>
 					While Block
 				</text>
+				<arg-description name="commands">
+					Набор команд, которые выполняются, пока условие истинно
+				</arg-description>
+				<arg-description name="condition">
+					Условие, подлежащее проверке
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector label="bc.condition" connector-kind="socket" connector-type="boolean" />
@@ -149,12 +174,16 @@
             <text>
                 Do While Block
             </text>
-          </description>
+			<arg-description name="commands">
+				Набор команд, которые выполняются, пока условие истинно
+			</arg-description>
+            <arg-description name="condition">
+				Условие, подлежащее проверке
+			</arg-description>
+          </description>       
           <BlockConnectors>
             <BlockConnector label="bc.commands" connector-kind="socket" connector-type="cmd" />
-            <BlockConnector label="bc.condition" connector-kind="socket" connector-type="boolean">
-              <DefaultArg genus-name="less" label="Pick a test" />
-            </BlockConnector>    
+            <BlockConnector label="bc.condition" connector-kind="socket" connector-type="boolean" />  
           </BlockConnectors>
       </BlockGenus> 
 		
@@ -167,6 +196,12 @@
 		<BlockGenus name="repeat_times" kind="command" color="255 221 0" initlabel="bg.repeat_times">
 			<description>
 				<text>Repeat the commands for "times"</text>
+				<arg-description name="repeat_times">
+					Сколько раз повторять выполнение команд
+				</arg-description>
+				<arg-description name="commands">
+					Набор команд, которые выполняются указанное количество раз
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.repeat_times">
@@ -179,10 +214,19 @@
 		<BlockGenus name="repeat" kind="command" color="255 221 0" initlabel="bg.repeat">
 			<description>
 				<text>repeat</text>
+				<arg-description name="variable">
+					Хранит реальное количество повторов
+				</arg-description>
+				<arg-description name="repeat_times">
+					Сколько раз повторять выполнение команд
+				</arg-description>
+				<arg-description name="commands">
+					Набор команд, которые выполняются указанное количество раз
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
-					<DefaultArg genus-name="variable_number" label="Variable name" />
+					<DefaultArg genus-name="variable_number" label="Имя переменной" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.repeat_times">
 					<DefaultArg genus-name="number" label="5" />
@@ -190,22 +234,34 @@
 				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="subroutine" kind="command" color="200 200 0" initlabel="bg.subroutine" is-starter="yes" is-terminator="yes" label-unique="yes" editable-label="yes">
 			<description>
 				<text>subroutine</text>
+				<arg-description name="commands">
+					Набор команд, из которых состоит функция
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="subroutine-ref" kind="command" color="200 200 0" initlabel="bg.subroutine" editable-label="yes">
 			<description>
 				<text>invoke subroutine</text>
 			</description>
 		</BlockGenus>
+		
 		<BlockGenus name="subroutine_var" kind="command" color="200 220 0" initlabel="bg.subroutine_var" is-starter="yes" is-terminator="yes" label-unique="yes" editable-label="yes">
 			<description>
 				<text>Subroutine with identification number</text>
+				<arg-description name="number">
+					Имя целочисленной (-32.538 - 32.537) переменной
+				</arg-description>
+				<arg-description name="commands">
+					Набор команд, из которых состоит функция
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="">
@@ -214,9 +270,13 @@
 				<BlockConnector label="bc.commands" connector-type="cmd" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="subroutine-ref_var" kind="command" color="200 220 0" initlabel="bg.subroutine_var" editable-label="yes">
 			<description>
 				<text>Invoke subroutine with identification number</text>
+				<arg-description name="number">
+					Целочисленный аргумент (-32.538 - 32.537)
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.transmit">
@@ -224,6 +284,7 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="ref_var" kind="data" color="232 156 149" initlabel="bg.ref_var" editable-label="yes">
 			<description>
 				<text>Identification number of subroutine</text>
@@ -232,6 +293,7 @@
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="delay_microseconds" kind="command" color="255 221 0" initlabel="bg.delay_microseconds">
 			<description>
 				<text>program delay in x milliseconds</text>
@@ -246,6 +308,12 @@
 		<BlockGenus name="scoop_task" kind="command" color="26 97 218" initlabel="bg.scoop_task" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>this is the loop of the arduino</text>
+				<arg-description  name="setup">
+					Набор команд, которые выполнятся один раз на старте программы
+				</arg-description>
+				<arg-description  name="loop">
+					Команды здесь будут выполняться в бесконечном цикле
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.setup" />
@@ -256,6 +324,9 @@
 		<BlockGenus name="scoop_loop" kind="command" color="26 97 218" initlabel="bg.scoop_loop" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>this is the loop of the arduino</text>
+				<arg-description  name="do">
+					Команды здесь будут выполняться в бесконечном цикле
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.do" />
@@ -282,6 +353,7 @@
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="scoop_event_high" kind="data" color="26 97 218" initlabel="bg.scoop_event_high">
 			<description>
 				<text>event flag</text>
@@ -290,6 +362,7 @@
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="scoop_event_falling" kind="data" color="26 97 218" initlabel="bg.scoop_event_falling">
 			<description>
 				<text>event flag</text>
@@ -298,6 +371,7 @@
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="scoop_event_rising" kind="data" color="26 97 218" initlabel="bg.scoop_event_rising">
 			<description>
 				<text>event flag</text>
@@ -306,6 +380,7 @@
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="scoop_event_change" kind="data" color="26 97 218" initlabel="bg.scoop_event_change">
 			<description>
 				<text>event flag</text>
@@ -313,13 +388,20 @@
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
-		</BlockGenus>
-		
-		
+		</BlockGenus>	
 		
 		<BlockGenus name="scoop_pin_event" kind="command" color="26 97 218" initlabel="bg.scoop_pin_event" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>SCoop Event on pin</text>
+				<arg-description  name="pin_number">
+					Номер порта, к которому подключено устройство
+				</arg-description>
+				<arg-description  name="scoop_event_flag">
+					Код события
+				</arg-description>
+				<arg-description  name="commands">
+					Команды, которые выполнятся при наступлении события
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
@@ -415,6 +497,12 @@
 				<text>Generates a square wave of the specified frequency (and 50%
 					duty cycle) on a pin.
 				</text>
+				<arg-description  name="pin_number">
+					Номер порта
+				</arg-description>
+				<arg-description  name="frequency">
+					Частота звука
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
@@ -432,6 +520,15 @@
 				<text>Generates a square wave of the specified frequency (and 50%
 					duty cycle) on a pin.
 				</text>
+				<arg-description  name="pin_number">
+					Номер порта
+				</arg-description>
+				<arg-description  name="frequency">
+					Частота звука
+				</arg-description>
+				<arg-description  name="milliseconds">
+					Время, в течение которого будут генерироваться звуковые волны
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
@@ -450,6 +547,9 @@
 			<description>
 				<text>Stops the generation of a square wave triggered by tone().
 				</text>
+				<arg-description  name="pin_number">
+					Номер порта
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
@@ -814,6 +914,14 @@
 		</BlockGenus>
 
 		<BlockGenus name="pow" kind="function" color="149 193 31" initlabel="bg.pow">
+			<description>
+				<arg-description  name="base">
+					Число, возводимое в степень
+				</arg-description>
+				<arg-description  name="exponent">
+					Показатель степени
+				</arg-description>
+			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.base" />
@@ -852,6 +960,9 @@
 		<BlockGenus name="random" kind="data" color="149 193 31" initlabel="bg.random">
 			<description>
 				<text>generate a random number less than the number</text>
+				<arg-description  name="max">
+					Верхняя граница числа
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -864,6 +975,12 @@
 		<BlockGenus name="random_range" kind="function" color="149 193 31" initlabel="bg.pow">
 			<description>
 				<text>Generate random number between min and (max - 1)</text>
+				<arg-description  name="min">
+					Нижняя граница числа
+				</arg-description>
+				<arg-description  name="max">
+					Верхняя граница числа
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -900,6 +1017,7 @@
 		<BlockGenus name="map_common" kind="data" color="149 193 31" initlabel="bg.map_common">
 			<description>
 				<text>map value from [0, 1023] to [0, 255]</text>
+				
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -912,17 +1030,28 @@
 		<BlockGenus name="map" kind="function" color="149 193 31" initlabel="bg.map">
 			<description>
 				<text>map</text>
+				<arg-description  name="value">
+					Значение, которое подлежит переносу
+				</arg-description>
+				<arg-description  name="out">
+					Базовый диапазон, в котором находится число
+				</arg-description>
+				<arg-description>
+				</arg-description>
+				<arg-description  name="into">
+					Диапазон, в который число будет перенесено
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.value" />
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.from">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.out">
 					<DefaultArg genus-name="number" label="0" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket">
 					<DefaultArg genus-name="number" label="1023" />
 				</BlockConnector>
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.to">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.into">
 					<DefaultArg genus-name="number" label="0" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket">
@@ -934,10 +1063,13 @@
 		<BlockGenus name="toint" kind="function" color="149 193 31" initlabel="bg.toint">
 			<description>
 				<text>to int</text>
+				<arg-description  name="char_variable">
+					Имя символьной переменной
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
-				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.value" />
+				<BlockConnector connector-type="poly" connector-kind="socket" label="bc.char_variable" />
 				
 			</BlockConnectors>
 		</BlockGenus>
@@ -945,6 +1077,15 @@
 		<BlockGenus name="constrain" kind="function" color="149 193 31" initlabel="bg.constrain">
 			<description>
 				<text>Constrain a number between two values</text>
+				<arg-description  name="value">
+					Значение, которое нужно ограничить
+				</arg-description>
+				<arg-description  name="low">
+					Нижняя граница
+				</arg-description>
+				<arg-description  name="high">
+					Верхняя граница
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -1001,6 +1142,7 @@
 				<BlockConnector connector-type="number" connector-kind="socket" position-type="bottom" />
 			</BlockConnectors>
 		</BlockGenus>
+		
 		<BlockGenus name="equal_digital" kind="function" color="222 131 51" initlabel="bg.equal_digital">
 			<description>
 				<text>is upper number greater then lower?</text>
@@ -1590,6 +1732,12 @@
 		<BlockGenus name="setter_variable_vector" kind="command" color="232 156 149" initlabel="bg.setter_variable_vector">
 			<description>
 				<text>Set a vector number</text>
+				<arg-description  name="position">
+					Номер элемента в массиве
+				</arg-description>
+				<arg-description  name="value">
+					Значение, которое нужно записать
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.array">
@@ -1662,8 +1810,18 @@
 	        <BlockConnector connector-type="string" connector-kind="plug" position-type="mirror" />
 	      </BlockConnectors>
 	    </BlockGenus>
+	    
 		<!--****************** Utilities *************** -->		
 		<BlockGenus name="servo_default" kind="command" color="205 133 63"  initlabel="bg.servo">
+			<description>
+				<text></text>
+				<arg-description  name="pin_number">
+					Номер порта, к которому подключен сервомотор
+				</arg-description>
+				<arg-description  name="angle">
+					Значение угла (в градусах), который нужно задать сервомотору
+				</arg-description>
+	        </description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
 					<DefaultArg genus-name="DuinoEDU_D5" label="D5" />
@@ -1682,6 +1840,12 @@
 		<BlockGenus name="servo_sg90" kind="command" color="205 133 63"  initlabel="bg.servo">
 			<description>
 				<text>SG90</text>
+				<arg-description  name="pin_number">
+					Номер порта, к которому подключен сервомотор
+				</arg-description>
+				<arg-description  name="angle">
+					Значение угла (в градусах), который нужно задать сервомотору
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number-list" connector-kind="socket" label="bc.pin_number">
@@ -1701,6 +1865,12 @@
 		<BlockGenus name="servo_mg996r" kind="command" color="205 133 63"  initlabel="bg.servo">
 			<description>
 				<text>Servo MG996R</text>
+				<arg-description  name="pin_number">
+					Номер порта, к которому подключен сервомотор
+				</arg-description>
+				<arg-description  name="angle">
+					Значение угла (в градусах), который нужно задать сервомотору
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.pin_number">
@@ -1718,6 +1888,15 @@
 		</BlockGenus>
 		
 		<BlockGenus name="ultrasonic" kind="data" color="77 191 169" initlabel="bg.ultrasonic">
+			<description>
+				<text></text>
+				<arg-description  name="trigger">
+					Номер порта, к которому подключен источник
+				</arg-description>
+				<arg-description  name="echo">
+					Номер порта, к которому подключен приёмник
+				</arg-description>
+			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" label="cm" />
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.trigger">
@@ -1732,6 +1911,18 @@
 		<BlockGenus name="LCD_I2C_Sainsmart_20by4" kind="command" color="205 133 63" initlabel="bg.LCD_I2C_Sainsmart_20by4">
 			<description>
 				<text>20 Char by 4 Line LCD display</text>
+				<arg-description  name="print">
+					Сообщение, которое нужно вывести
+				</arg-description>
+				<arg-description  name="line_number">
+					Номер строки, с которой нужно начать выводить сообщение
+				</arg-description>
+				<arg-description  name="character_number">
+					Номер символа в строке, с которого нужно начать выводить сообщение
+				</arg-description>
+				<arg-description  name="device_address_I2C">
+					Адрес ЖК модуля
+				</arg-description>
 			</description>			
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.print">
@@ -1782,6 +1973,18 @@
 		<BlockGenus name="LCD_PLL_Sainsmart_16by2" kind="command" color="205 133 63" initlabel="bg.LCD_PLL_Sainsmart_16by2">
 			<description>
 				<text>16 Char by 2 Line LCD display</text>
+				<arg-description  name="print">
+					Сообщение, которое нужно вывести
+				</arg-description>
+				<arg-description  name="line_number">
+					Номер строки, с которой нужно начать выводить сообщение
+				</arg-description>
+				<arg-description  name="character_number">
+					Номер символа в строке, с которого нужно начать выводить сообщение
+				</arg-description>
+				<arg-description  name="device_address_I2C">
+					Адрес ЖК модуля
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.print">
@@ -2108,6 +2311,9 @@
 		<BlockGenus name="eeprom_read_int" kind="data" color="0 100 90" initlabel="bg.eeprom_read_int">
 			<description>
 				<text>EEPROM Read integer </text>
+				<arg-description  name="eeprom_address">
+					Число будет прочитано из указанного адреса и следующего за ним (т.к. занимает 2 адреса)
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -2120,6 +2326,12 @@
 		<BlockGenus name="eeprom_write_int" kind="command" color="0 100 90" initlabel="bg.eeprom_write_int">
 			<description>
 				<text>EEPROM Write integer</text>
+				<arg-description  name="eeprom_address">
+					Число займет два адреса: указанный и следующий за ним
+				</arg-description>
+				<arg-description  name="eeprom_data">
+					Число, которое нужно записать
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.eeprom_address">
@@ -2134,6 +2346,9 @@
 		<BlockGenus name="eeprom_read_long" kind="data" color="0 100 90" initlabel="bg.eeprom_read_long">
 			<description>
 				<text>EEPROM Read 'unsigned long'</text>
+				<arg-description  name="eeprom_address">
+					Число будет прочитано из указанного адреса и трёх, следующих за ним (т.к. занимает 4 адреса)
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -2146,6 +2361,12 @@
 		<BlockGenus name="eeprom_write_long" kind="command" color="0 100 90" initlabel="bg.eeprom_write_long">
 			<description>
 				<text>EEPROM Write 'unsigned long'</text>
+				<arg-description  name="eeprom_address">
+					Число займет 4 адреса: указанный и 3, следующие за ним
+				</arg-description>
+				<arg-description  name="eeprom_data">
+					Число, которое нужно записать
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.eeprom_address">
@@ -2186,6 +2407,18 @@
 		<BlockGenus name="sd_write2" kind="command" color="0 100 90" initlabel="bg.sd_write2">
 			<description>
 				<text>Write to SD card</text>
+				<arg-description  name="file">
+					Файл .txt, который будет создан и записан на SD
+				</arg-description>
+				<arg-description  name="data">
+					Сообщение, которое будет записано в текстовый файл
+				</arg-description>
+				<arg-description  name="ln">
+					Нужно ли записать сообщение в файл с новой строки
+				</arg-description>
+				<arg-description  name="port_number">
+					Номер порта, к которому подключена SD карта
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="socket" label="bc.file">
