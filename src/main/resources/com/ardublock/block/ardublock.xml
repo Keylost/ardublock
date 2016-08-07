@@ -907,6 +907,7 @@
 		</BlockGenus>
 
 		<BlockGenus name="abs" kind="function" color="149 193 31" initlabel="bg.abs">
+			<description><text></text></description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" />
@@ -937,6 +938,7 @@
 		</BlockGenus>
 
 		<BlockGenus name="sin" kind="function" color="149 193 31" initlabel="bg.sin">
+			<description><text></text></description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" />
@@ -944,6 +946,7 @@
 		</BlockGenus>
 
 		<BlockGenus name="cos" kind="function" color="149 193 31" initlabel="bg.cos">
+			<description><text></text></description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" />
@@ -951,6 +954,7 @@
 		</BlockGenus>
 
 		<BlockGenus name="tan" kind="function" color="149 193 31" initlabel="bg.tan">
+			<description><text></text></description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
 				<BlockConnector connector-type="number" connector-kind="socket" />
@@ -1700,7 +1704,7 @@
 					<DefaultArg genus-name="variable_digital" label="Bool" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.value">
-					<DefaultArg genus-name="digital-high" label="ВЫСОКИЙ" />
+					<DefaultArg genus-name="true" label="ИСТИНА" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -2127,6 +2131,9 @@
 		</BlockGenus>
 
 		<BlockGenus name="serial_available" kind="data" color="245 245 245" initlabel="bg.serial_available">
+			<description>
+				<text></text>
+			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="boolean" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
@@ -7474,7 +7481,7 @@
 					<DefaultArg genus-name="message" label="message" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
-					<DefaultArg genus-name="true" label="true" />
+					<DefaultArg genus-name="true" label="ИСТИНА" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -7631,7 +7638,7 @@
 					<DefaultArg genus-name="number" label="50" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.Fill">
-					<DefaultArg genus-name="true" label="true" />
+					<DefaultArg genus-name="true" label="ИСТИНА" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.red2">
 					<DefaultArg genus-name="number" label="255" />
@@ -7643,7 +7650,7 @@
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.Stroke">
-					<DefaultArg genus-name="true" label="true" />
+					<DefaultArg genus-name="true" label="ИСТИНА" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.red2">
 					<DefaultArg genus-name="number" label="0" />
@@ -7679,7 +7686,7 @@
 					<DefaultArg genus-name="number" label="50" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.Fill">
-					<DefaultArg genus-name="true" label="true" />
+					<DefaultArg genus-name="true" label="ИСТИНА" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.red2">
 					<DefaultArg genus-name="number" label="255" />
@@ -7691,7 +7698,7 @@
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.Stroke">
-					<DefaultArg genus-name="true" label="true" />
+					<DefaultArg genus-name="true" label="ИСТИНА" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.red2">
 					<DefaultArg genus-name="number" label="0" />
@@ -7842,7 +7849,7 @@
 					<DefaultArg genus-name="message" label="Message" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
-					<DefaultArg genus-name="true" label="True" />
+					<DefaultArg genus-name="true" label="ИСТИНА" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
