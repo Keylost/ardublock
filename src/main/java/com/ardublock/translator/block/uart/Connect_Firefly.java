@@ -20,7 +20,7 @@ public class Connect_Firefly  extends TranslatorBlock {
 					"boolean obstacle = false;\n boolean stop_sign = false;\n boolean zebra = false;\n" + 
 					"boolean give_way = false;\n boolean main_road = false;\n boolean pacBegin = true;\n" +
 					"int light2 = 0;\n int light3 = 0;\n signed char buffer[20];");
-			translator.addSetupCommand("Serial1.begin(115200);\n");
+			translator.addSetupCommand("Serial1.begin(115200);\n Serial1.setTimeout(20);\n");
 			ret = 	"if (Serial1.available() > 4 && pacBegin) {\n" + 
 					"cur = (signed char)Serial1.read();\n"+
 					"if (cur == -126) {\n"+

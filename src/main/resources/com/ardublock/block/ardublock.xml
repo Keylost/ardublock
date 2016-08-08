@@ -10720,6 +10720,26 @@
 			</description>
 		</BlockGenus>
 		
+		<BlockGenus name="encoder_init" kind="command" color="138 43 226" initlabel="bg.encoder_init">
+			<description>
+				<text>Set up getting data from encoder</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.diameter">
+					<DefaultArg genus-name="number" label="74" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="encoder_get_speed" kind="data" color="138 43 226" initlabel="bg.encoder_get_speed">
+			<description>
+				<text>Get speed (cm/s) from encoder</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="number" connector-type="number" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+		
 		<BlockGenus name="stop_line" kind="data" initlabel="bg.stop_line" color="138 43 226">
 			<description>
 				<text></text>
@@ -11990,6 +12010,8 @@
 				<BlockGenusMember>yellow_light</BlockGenusMember>
 				<BlockGenusMember>red_light</BlockGenusMember>
 				<BlockGenusMember>no_light</BlockGenusMember>
+				<BlockGenusMember>encoder_init</BlockGenusMember>
+				<BlockGenusMember>encoder_get_speed</BlockGenusMember>
 			</BlockDrawer>
 			\u0417\u0430\u0434\u0430\u0442\u044C\u0020\u0441\u0442\u0440\u043E\u043A\u043E\u0432\u0443\u044E\u0020\u043F\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u0443\u044E
 			
