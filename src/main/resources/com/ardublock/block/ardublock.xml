@@ -10821,6 +10821,11 @@
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror"/>
 			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/robomobile/traffic2.png</FileLocation>
+				</Image>
+			</Images>
 		</BlockGenus>
 		
 		<BlockGenus name="traffic_light3" kind="data" initlabel="bg.traffic_light3" color="138 43 226">
@@ -10884,6 +10889,34 @@
 			<Images>
 				<Image>
 					<FileLocation>com/ardublock/block/robomobile/red.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		
+		<BlockGenus name="green2" kind="data" initlabel="bg.green2" color="0 255 0">
+			<description>
+				<text></text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="number" position-type="mirror"/>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/robomobile/green2.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		
+		<BlockGenus name="red2" kind="data" initlabel="bg.red2" color="255 0 0">
+			<description>
+				<text></text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="number" position-type="mirror"/>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/robomobile/red2.png</FileLocation>
 				</Image>
 			</Images>
 		</BlockGenus>
@@ -12009,6 +12042,8 @@
 				<BlockGenusMember>green_light</BlockGenusMember>
 				<BlockGenusMember>yellow_light</BlockGenusMember>
 				<BlockGenusMember>red_light</BlockGenusMember>
+				<BlockGenusMember>green2</BlockGenusMember>
+				<BlockGenusMember>red2</BlockGenusMember>
 				<BlockGenusMember>no_light</BlockGenusMember>
 				<BlockGenusMember>encoder_init</BlockGenusMember>
 				<BlockGenusMember>encoder_get_speed</BlockGenusMember>
