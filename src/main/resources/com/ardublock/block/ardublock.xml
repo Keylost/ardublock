@@ -1815,6 +1815,18 @@
 	      </BlockConnectors>
 	    </BlockGenus>
 	    
+	    <BlockGenus name="str_to_int" kind="data" color="230 110 110" initlabel="bg.str_to_int">
+			<description>
+				<text>Convert string to integer</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-kind="plug" connector-type="number" />
+				<BlockConnector connector-type="string" connector-kind="socket" >
+					<DefaultArg genus-name="message" label="message"/>
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+	    
 		<!--****************** Utilities *************** -->		
 		<BlockGenus name="servo_default" kind="command" color="205 133 63"  initlabel="bg.servo">
 			<description>
@@ -11573,6 +11585,7 @@
 				<BlockGenusMember>create_variable_vector</BlockGenusMember>
 				<BlockGenusMember>variable_vector</BlockGenusMember>
 				<BlockGenusMember>setter_variable_vector</BlockGenusMember>
+				<BlockGenusMember>str_to_int</BlockGenusMember>
 			</BlockDrawer>
 			<BlockDrawer button-color="205 133 63" name="bd.utilities" type="factory">
 				<BlockGenusMember>servo_default</BlockGenusMember>
