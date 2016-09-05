@@ -2115,6 +2115,20 @@
 
 		<!-- ******************** Communication *************** -->
 
+		<BlockGenus name="serial_begin" kind="command" color="245 245 245" initlabel="bg.serial_begin">
+			<description>
+				<text>Open connection with serial port</text>
+				<arg-description  name="serial_speed">
+					Скорость передачи данных через последовательный порт в бодах (бит/с)
+				</arg-description>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.serial_speed">
+					<DefaultArg genus-name="number" label="9600" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
 		<BlockGenus name="serial_read" kind="data" color="245 245 245" initlabel="bg.serial_read">
 			<description>
 				<text></text>
@@ -11597,6 +11611,7 @@
 				<BlockGenusMember>number-single-fixed-parallel</BlockGenusMember>
 			</BlockDrawer>
 			<BlockDrawer button-color="255 255 255" name="bd.communication" type="factory">
+				<BlockGenusMember>serial_begin</BlockGenusMember>
 				<BlockGenusMember>serial_available</BlockGenusMember>
 				<BlockGenusMember>serial_available2</BlockGenusMember>
 				<BlockGenusMember>serial_read</BlockGenusMember>

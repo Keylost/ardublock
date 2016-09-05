@@ -4,9 +4,9 @@ import com.ardublock.translator.Translator;
 import com.ardublock.translator.block.exception.SocketNullException;
 import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
 
-public class SerialReadBlock extends TranslatorBlock
+public class SerialBegin extends TranslatorBlock
 {
-	public SerialReadBlock(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	public SerialBegin(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
 	{
 		super(blockId, translator, codePrefix, codeSuffix, label);
 	}
@@ -14,10 +14,10 @@ public class SerialReadBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		//translator.addSetupCommand("Serial.begin(9600);");
+		TranslatorBlock speed = this.getRequiredTranslatorBlockAtSocket(0);
 		
-		String ret = "Serial.read()";
-		
-		return codePrefix+ret+codeSuffix;
+		translator.addSetupCommand("Serial.begin(" + speed.toCode() + ");");
+	
+		return codePrefix + codeSuffix;
 	}
 }
