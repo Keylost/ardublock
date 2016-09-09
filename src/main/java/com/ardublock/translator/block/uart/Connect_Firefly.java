@@ -30,6 +30,7 @@ public class Connect_Firefly  extends TranslatorBlock {
 					"buffer[3] = (signed char)Serial1.read();\n"+
 					"n = buffer[3];\n"+
 					"line = buffer[0];\n"+
+					"if (line != -110) line = -line;\n"+
 					"pacBegin = false;\n\n"+						
 					"if (buffer[1] == 1) stop_line = true;\n"+
 					"else stop_line = false; \n"+

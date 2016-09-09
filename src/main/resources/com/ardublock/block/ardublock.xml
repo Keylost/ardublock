@@ -423,7 +423,7 @@
 				<text>Read digital from the pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.num">
 					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="plug" />
@@ -447,7 +447,7 @@
 				<text>Read analog value from pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.num">
 					<DefaultArg genus-name="DuinoEDU_A0" label="A0" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="plug" />
@@ -458,7 +458,7 @@
 				<text>write digital to pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.num">
 					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
 				</BlockConnector>
 				<BlockConnector connector-type="boolean" connector-kind="socket">
@@ -472,7 +472,7 @@
 				<text>write analog to pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.num">
 					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket">
@@ -486,7 +486,7 @@
 				<text>toggle digital pin</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.num">
 					<DefaultArg genus-name="DuinoEDU_D2" label="D2" />
 				</BlockConnector>
 			</BlockConnectors>
