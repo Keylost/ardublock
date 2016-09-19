@@ -36,9 +36,10 @@ public class Encoder_init  extends TranslatorBlock {
 											"\n float real_speed = 0; \n unsigned long last_speed_update = 0; \n" +
 											send_data + doEncoder);
 			translator.addSetupCommand("int diameter = " + diam.toCode() + "; \n" +
-										"factor = 48.1 / diameter; \n" +
+										"factor = diameter * 0.104666667; \n" +
 										"pinMode(encoder0PinA, INPUT); \n" +
 										"attachInterrupt(1, doEncoder, CHANGE);\n");
+			translator.addSetupCommand("Serial1.begin(115200);\n ");
 				
 			ret = "\n if (millis() - last_speed_update > 1000) serial_send_data(); \n";
 			
