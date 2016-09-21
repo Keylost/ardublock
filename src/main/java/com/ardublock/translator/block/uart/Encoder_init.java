@@ -22,7 +22,7 @@ public class Encoder_init  extends TranslatorBlock {
 			
 			send_data = "\n\n void serial_send_data()\n"+
 						"{\n"+
-						"	real_speed = encoder0Pos * factor;\n"+
+						"	real_speed = encoder0Pos * factor / 10;\n"+
 						"	encoder0Pos = 0;\n"+
 						"	last_speed_update = millis();\n"+
 						"	Serial1.print('F');\n"+
@@ -36,12 +36,12 @@ public class Encoder_init  extends TranslatorBlock {
 											"\n float real_speed = 0; \n unsigned long last_speed_update = 0; \n" +
 											send_data + doEncoder);
 			translator.addSetupCommand("int diameter = " + diam.toCode() + "; \n" +
-										"factor = diameter * 0.104666667; \n" +
+										"factor = diameter * 0.130833333; \n" +
 										"pinMode(encoder0PinA, INPUT); \n" +
 										"attachInterrupt(1, doEncoder, CHANGE);\n");
 			translator.addSetupCommand("Serial1.begin(115200);\n ");
 				
-			ret = "\n if (millis() - last_speed_update > 1000) serial_send_data(); \n";
+			ret = "\n if (millis() - last_speed_update > 10) serial_send_data(); \n";
 			
 			return codePrefix + ret + codeSuffix;
 		}
