@@ -19,9 +19,10 @@ public class Connect_Firefly  extends TranslatorBlock {
 			translator.addDefinitionCommand("int i, n, cur;\n int line = -110;\n boolean stop_line = false;\n " +
 					"boolean obstacle = false;\n boolean stop_sign = false;\n boolean zebra = false;\n" + 
 					"boolean give_way = false;\n boolean main_road = false;\n boolean pacBegin = true;\n" +
-					"int light2 = 0;\n int light3 = 0;\n signed char buffer[20];");
+					"int light2 = 0;\n int light3 = 0;\n signed char buffer[20]; int time;");
 			translator.addSetupCommand("Serial1.begin(115200);\n ");
 			ret = 	"if (Serial1.available() > 4 && pacBegin) {\n" + 
+					"time = millis();\n"+
 					"cur = (signed char)Serial1.read();\n"+
 					"if (cur == -126) {\n"+
 					"buffer[0] = (signed char)Serial1.read();\n"+
@@ -74,6 +75,7 @@ public class Connect_Firefly  extends TranslatorBlock {
 					"}\n"+
       
 					"pacBegin = true;\n"+
+					"if (millis() - time > 500) line = -110;\n"+
 					"}\n";
 			
 			return ret;
