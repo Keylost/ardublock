@@ -22,7 +22,7 @@ public class Encoder_init  extends TranslatorBlock {
 			
 			send_data = "\n\n void serial_send_data()\n"+
 						"{\n"+
-						"	real_speed = encoder0Pos / (double)(millis() - last_speed_update) * factor / 10;\n"+
+						"	real_speed = encoder0Pos / (double)(millis() - last_speed_update) * 1000 * factor / 10;\n"+
 						"	encoder0Pos = 0;\n"+
 						"	last_speed_update = millis();\n"+
 						"	Serial1.print('F');\n"+
