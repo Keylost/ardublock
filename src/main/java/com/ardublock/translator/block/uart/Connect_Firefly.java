@@ -75,8 +75,8 @@ public class Connect_Firefly  extends TranslatorBlock {
 					"}\n"+
       
 					"pacBegin = true;\n"+
-					"if (millis() - time > 500) line = -110;\n"+
-					"}\n";
+					"}\n"+
+					"if (millis() - time > 500) line = -110;\n";
 			
 			return ret;
 		}
