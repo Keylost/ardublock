@@ -22,7 +22,7 @@ public class Encoder_init  extends TranslatorBlock {
 			
 			send_data = "\n\n void serial_send_data()\n"+
 						"{\n"+
-						"	real_speed = encoder0Pos * factor / 10;\n"+
+						"	real_speed = encoder0Pos / (double)(millis() - last_speed_update) * factor / 10;\n"+
 						"	encoder0Pos = 0;\n"+
 						"	last_speed_update = millis();\n"+
 						"	Serial1.print('F');\n"+
@@ -41,7 +41,7 @@ public class Encoder_init  extends TranslatorBlock {
 										"attachInterrupt(1, doEncoder, CHANGE);\n");
 			translator.addSetupCommand("Serial1.begin(115200);\n ");
 				
-			ret = "\n if (millis() - last_speed_update > 10) serial_send_data(); \n";
+			ret = "\n if (millis() - last_speed_update > 1000) serial_send_data(); \n";
 			
 			return codePrefix + ret + codeSuffix;
 		}
