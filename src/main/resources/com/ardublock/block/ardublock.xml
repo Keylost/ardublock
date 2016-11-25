@@ -1504,7 +1504,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="number" kind="data" color="232 156 149" initlabel="bg.number" editable-label="yes">
+		<BlockGenus name="number" kind="data" color="226 201 208" initlabel="bg.number" editable-label="yes">
 			<description>
 				<text>
 					Standard integer constant
@@ -1515,10 +1515,10 @@
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="number_long" kind="data" color="255 153 204 " initlabel="bg.number_long" editable-label="yes">
+		<BlockGenus name="number_double" kind="data" color="201 222 226" initlabel="bg.number_double" editable-label="yes">
 			<description>
 				<text>
-					'Unsigned Long' constant
+					'Double' constant
 				</text>
 			</description>
 			<BlockConnectors>
@@ -1526,10 +1526,31 @@
 			</BlockConnectors>
 		</BlockGenus>
 		
-		<BlockGenus name="number_double" kind="data" color="153 204 255" initlabel="bg.number_double" editable-label="yes">
+		<BlockGenus name="char" kind="data" color="214 226 201" initlabel="bg.char" editable-label="yes">
 			<description>
 				<text>
-					'Double' constant
+					character
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="message" kind="data" color="201 226 219" initlabel="bg.message" editable-label="yes">
+			<description>
+				<text>string message</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="plug" />
+				<BlockConnector connector-type="string" connector-kind="socket" />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="number_long" kind="data" color="255 153 204 " initlabel="bg.number_long" editable-label="yes">
+			<description>
+				<text>
+					'Unsigned Long' constant
 				</text>
 			</description>
 			<BlockConnectors>
@@ -1782,18 +1803,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
-		<BlockGenus name="char" kind="data" color="102 255 51" initlabel="bg.char" editable-label="yes">
-			<description>
-				<text>
-					character
-				</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
-			</BlockConnectors>
-		</BlockGenus>
-		
-	    <BlockGenus name="setter_variable_String" kind="command" color="0 139 139" initlabel="bg.setter_variable_String">
+		<BlockGenus name="setter_variable_String" kind="command" color="0 139 139" initlabel="bg.setter_variable_String">
 	      <BlockConnectors>
 	        <BlockConnector connector-type="string" connector-kind="socket" label="bc.variable">
 	          <DefaultArg genus-name="variable_String" label="STRING" />
@@ -2196,16 +2206,6 @@
 				<BlockConnector connector-type="boolean" connector-kind="socket" label="bc.ln">
 					<DefaultArg genus-name="true" label="ИСТИНА" />
 				</BlockConnector>
-			</BlockConnectors>
-		</BlockGenus>
-
-		<BlockGenus name="message" kind="data" color="0 139 139" initlabel="bg.message" editable-label="yes">
-			<description>
-				<text>string message</text>
-			</description>
-			<BlockConnectors>
-				<BlockConnector connector-type="string" connector-kind="plug" />
-				<BlockConnector connector-type="string" connector-kind="socket" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -10959,6 +10959,25 @@
 	</BlockGenuses>
 
 	<BlockFamilies>
+		<!--<BlockFamily>
+			<FamilyMember>green_light</FamilyMember>
+			<FamilyMember>yellow_light</FamilyMember>
+			<FamilyMember>red_light</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>red2</FamilyMember>
+			<FamilyMember>yellow_light</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>if</FamilyMember>
+			<FamilyMember>ifelse</FamilyMember>
+		</BlockFamily>
+		<BlockFamily>
+			<FamilyMember>stop_sign</FamilyMember>
+			<FamilyMember>zebra_sign</FamilyMember>
+			<FamilyMember>give_way_sign</FamilyMember>
+			<FamilyMember>main_road_sign</FamilyMember>
+		</BlockFamily>-->
 		<BlockFamily>
 			<FamilyMember>digital-high</FamilyMember>
 			<FamilyMember>digital-low</FamilyMember>
