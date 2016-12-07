@@ -11573,7 +11573,6 @@
 				<BlockGenusMember>and</BlockGenusMember>
 				<BlockGenusMember>or</BlockGenusMember>
 				<BlockGenusMember>not</BlockGenusMember>
-				<BlockGenusMember>string_equal</BlockGenusMember>
 				<BlockGenusMember>string_empty</BlockGenusMember>
 				<BlockGenusMember>string_toInt</BlockGenusMember>
 			</BlockDrawer>
