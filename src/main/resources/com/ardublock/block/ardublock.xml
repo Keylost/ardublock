@@ -1731,9 +1731,15 @@
 		</BlockGenus>
 
 		<BlockGenus name="variable_vector" kind="data" initlabel="bg.variable_vector" editable-label="yes" is-label-value="yes" color="232 156 149">
+			<description>
+				<text>Get element of vector</text>
+				<arg-description  name="position">
+					Номер элемента в массиве
+				</arg-description>
+			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="plug" />
-				<BlockConnector connector-type="number" connector-kind="socket" label="bc.num">
+				<BlockConnector connector-type="number" connector-kind="socket" label="bc.position">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 			</BlockConnectors>
@@ -1742,10 +1748,16 @@
 		<BlockGenus name="create_variable_vector" kind="command" color="232 156 149" initlabel="bg.create_variable_vector">
 			<description>
 				<text>create a vector of numbers</text>
+				<arg-description  name="array">
+					Имя нового массива
+				</arg-description>
+				<arg-description  name="vecsize">
+					Количество элементов в массиве
+				</arg-description>
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.array">
-					<DefaultArg genus-name="variable_fake" label="Table" />
+					<DefaultArg genus-name="variable_fake" label="massive" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.vecsize">
 					<DefaultArg genus-name="number" label="1" />
@@ -1757,6 +1769,9 @@
 		<BlockGenus name="setter_variable_vector" kind="command" color="232 156 149" initlabel="bg.setter_variable_vector">
 			<description>
 				<text>Set a vector number</text>
+				<arg-description  name="array">
+					Имя существующего массива
+				</arg-description>
 				<arg-description  name="position">
 					Номер элемента в массиве
 				</arg-description>
@@ -1766,7 +1781,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.array">
-					<DefaultArg genus-name="variable_fake" label="Table" />
+					<DefaultArg genus-name="variable_fake" label="massive" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.position">
 					<DefaultArg genus-name="number" label="1" />
